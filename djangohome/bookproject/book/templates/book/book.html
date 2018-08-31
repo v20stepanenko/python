@@ -1,0 +1,4 @@
+<h2>Книга: {{ book.book_name }}</h2>
+<p>Дата релиза: {{ book.release_data}}</p>
+<h4>Автор {{ book.author.name }}{{ book.author.surname }}</h4>
+<a href="/books/author{{ book.author.id }}">Назад</a>

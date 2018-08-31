@@ -1,0 +1,22 @@
+{% load static %}
+<script src="{% static 'post/comments.js' %}"></script>
+<script src="{% static 'main.js' %}"></script>
+<div class="post_block" data-id="{{ post.id }}">
+    <h2>{{ post.title }}</h2>
+    <div class="content">
+        {{ post.body }}
+    </div>
+</div>
+<div>Коментарии:</div>
+<div class="comments-wrapper">
+    {% if not user.is_authenticated %}
+        нужно <a href="{% url 'reg' %}">зарегестрироваться </a>
+        <a href="{% url 'log' %}"> и залогиниться </a> для взаимодействия с коментами
+    {% endif %}
+</div>
+{% if user.is_authenticated %}
+<form action="{% url 'create-comment' %}" class="comments-add">
+    <textarea id="" cols="30" rows="10"></textarea>
+    <input type="submit" value="Добавить коментарий">
+</form>
+{% endif %}

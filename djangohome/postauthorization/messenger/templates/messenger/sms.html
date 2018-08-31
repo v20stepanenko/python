@@ -1,0 +1,11 @@
+{% if box.user == owner %}
+    {% for message in box.message_set.all %}
+        {% if message.is_response %}
+            <span>Ваше сообщение:</span>
+        {% else %}
+            <span>{{ box.sender.username }}</span>
+        {% endif %}
+        {{ message.message_text }}
+
+    {% endfor %}
+{% endif %}

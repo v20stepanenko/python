@@ -1,0 +1,6 @@
+<form action="{% url 'new-category' %}" method="post">
+    {% csrf_token %}
+    <div>Новая категория</div>
+    {{ category_form }}
+    <input type="submit" value="Создать">
+</form>

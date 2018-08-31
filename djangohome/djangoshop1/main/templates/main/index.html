@@ -1,0 +1,34 @@
+{% load static %}
+<script src="{% static 'cart/cart.js' %}"></script>
+<header>
+    <a id="cart" href="{% url 'cart'%}">
+        Корзина (<span class="quantity">{{ quantity }}</span>)
+    </a>
+</header>
+{% block category %}
+    <aside>
+        {% for category in categories %}
+            <a href="{% url 'category' category.id %}">{{ category.name }}</a>
+        {% endfor %}
+
+    </aside>
+{% endblock %}
+{% block content %}
+    <div class="products-wrapper">
+        {% for product in products %}
+            <div class="product">
+                <h3><a href="{% url 'show-product' product.id %}">{{ product.name }}</a></h3>
+                <img src="
+                {% if product.img %}
+                    {{ product.img.url }}
+                {% else %}
+                    #
+                {% endif %}
+" alt="">
+                <div>{{ product.description }}</div>
+                {{ product.price }}
+                <a href="#" class="add-product" data-id="{{ product.id }}">Добавить товар</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

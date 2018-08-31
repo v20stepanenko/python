@@ -1,0 +1,12 @@
+Всего авторов: {{ authors.all|length }} <br>
+Всего книг: {{ books.all|length }} <br>
+
+<ul>
+    {% for author in authors.all %}
+        <li>
+            <a href="/books/author{{ author.id }}">{{ author }} ({{ author.book_set.all|length }}) </a>
+        </li>
+    {% endfor %}
+</ul>
+
+

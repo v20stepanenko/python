@@ -1,0 +1,14 @@
+{% extends 'mainapp/index.html' %}
+{% block manufacturer%}
+    {% with category.manufacturer.all as manufactures %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block products%}
+    {% with category.product_set.all as products%}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+<h2>Категория {{ category.name }}</h2>
+{% endblock %}

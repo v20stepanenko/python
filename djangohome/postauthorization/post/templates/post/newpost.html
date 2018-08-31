@@ -1,0 +1,6 @@
+Автор: {{ user.username }}
+<form action="{% url 'create-post' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Создать новый пост">
+</form>

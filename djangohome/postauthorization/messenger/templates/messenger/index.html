@@ -1,0 +1,3 @@
+{% for messenger_box in messenger_boxes %}
+    <a href="{% url 'message-box' messenger_box.id %}">{{ messenger_box.sender.username }} {{ messenger_box.message|length }}</a>
+{% endfor %}

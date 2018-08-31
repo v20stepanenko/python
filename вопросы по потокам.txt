@@ -1,0 +1,3 @@
+примитивы синхронизации Lock, Rlock, Semaphore, BoundedSemaphore
+что такое deque() и Condition(), wait
+follow

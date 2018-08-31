@@ -1,0 +1,17 @@
+{% load static %}
+<script src="{% static 'cart/cart-main.js' %}"></script>
+<div class="products-wrapper">
+    <a href="#" id="clear">Очистить корзину</a>
+    <a href="/">На главную</a>
+    {% for position in cart.get_products %}
+        <div class="product" data-id="{{ position.product.id }}">
+            <a href="{% url 'show-product' position.product.id %}">{{ position.product.name }}:</a> {{ position.quantity }}
+            <input type="button" class="plus" value="+"> <input class="minus" type="button" value="-">
+            <input type="button" class="delete" value="X">
+            <span>Цена: <span class="price">{{ position.product.price }}</span></span>
+        </div>
+    {% endfor %}
+    <div>Общая цена:{{ cart.get_total_price }} грн</div>
+
+    <a href="{% url 'make-order' %}">Оформить заказ</a>
+</div>

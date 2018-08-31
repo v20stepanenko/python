@@ -1,0 +1,19 @@
+{% load static %}
+<script src="{% static 'main.js' %}"></script>
+<script src="{% static 'post/post.js' %}"></script>
+{% if not user.is_authenticated %}
+    <nav>
+        <ul>
+            <li><a href="{% url 'reg' %}">Регистрация</a></li>
+            <li><a href="{% url 'log' %}">Авторизация</a></li>
+        </ul>
+    </nav>
+{% else %}
+    <div>Привет {{ user.username }}</div>
+    <a href="{% url "create-post" %}">Создать пост</a>
+    <a href="{% url 'profile' %}">Мой профиль</a>
+    <a href="{% url "logout" %}">logout</a>
+{% endif %}
+
+<div class="post-wrapper"></div>
+

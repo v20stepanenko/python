@@ -1,0 +1,24 @@
+<form class="profile" action="{% url 'profile' %}" method="post">
+    <label for="first-name">Your first name</label>
+    <input type="text" name="first-name" id="first-name" value= {{ user.first_name }}>
+    <br>
+    <label for="second-name">Second Name</label>
+    <input type="text" name="second-name" id="second-name" value= {{ user.last_name }}>
+    <br>
+    <label for="password">Пароль</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <label for="description">Describe yourself</label>
+    <textarea name="description" id="description">
+    {{ user.profile.description }}
+    </textarea>
+    <br>
+    <label for="facebook">facebook link</label>
+    <input type="text" name="facebook" id="facebook" value={{ user.profile.link_fb }}>
+    <br>
+    <label for="birth-day">Birth DAY {{ user.profile.birth_day }}</label>
+    <input type="date" name="birth-day" id="birth-day">
+
+    <br>
+    <input type="submit" value="Сохранить">
+</form>

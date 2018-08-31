@@ -1,0 +1,14 @@
+<h2>Автор: {{ author.name }} {{ author.surname }}</h2>
+Книги:
+<ul>
+    {% for book in books %}
+        <li>
+            <a href="/books/book{{ book.id }}">
+                {{ book.book_name }}
+            </a>
+        </li>
+    {% endfor %}
+
+</ul>
+
+<a href="/books">Назад</a>

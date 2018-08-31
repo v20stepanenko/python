@@ -1,0 +1,9 @@
+<a href="{% url 'cart' %}">К корзине</a>
+<a href="{% url 'main-page'%}">На главную</a>
+<br>
+Стоимость заказа {{ cart.get_total_price }}грн
+<form action="{% url 'make-order' %}" method="post">
+    {{ form |linebreaksbr}}
+    <br>
+    <input type="submit" value="Отправить заказ">
+</form>

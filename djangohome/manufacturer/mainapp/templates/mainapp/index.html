@@ -1,0 +1,38 @@
+{% block content %}
+{% endblock %}
+
+{% block manufacturer %}
+    <h3>Список производителей:</h3>
+    <ul>
+        {% for manufacture in manufactures %}
+            <li>
+                <a href='{% url 'manufacturer' manufacture.id %}'>
+                    {{ manufacture.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+{% block products %}
+    <h3>Список продуктов:</h3>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href={% url 'product' product.id %}>
+                    {{ product.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+<h3>{% block category_title %}Список всех категорий:{% endblock %}</h3>
+<ul>
+    {% for category in categories %}
+        <li>
+            <a href="/category/{{ category.id }}">
+                {{ category.name }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
